@@ -15,7 +15,7 @@ struct HostApp: App {
     
     init() {
         if let path = Bundle.main.resourcePath?.appending("/dist") {
-            webServer.addGETHandler(forBasePath: "/", directoryPath: path, indexFilename: "index.html", cacheAge: 3600, allowRangeRequests: true)
+            webServer.addGETHandler(forBasePath: "/", directoryPath: path, indexFilename: "index.html", cacheAge: 0, allowRangeRequests: true)
             webServer.start(withPort: 8080, bonjourName: nil)
             if let url = webServer.serverURL {
                 print("Visit \(url) in your web browser")

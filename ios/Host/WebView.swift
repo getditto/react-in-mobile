@@ -13,7 +13,9 @@ struct WebView: UIViewRepresentable {
     let url: URL
     
     func makeUIView(context: Context) -> WKWebView {
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        // this is important to prevent caching
+        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         let wkWebView = WKWebView()
         wkWebView.load(request)
         return wkWebView
