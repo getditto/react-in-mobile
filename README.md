@@ -5,8 +5,8 @@ Ever wanted to build a React app, bundle it and run it locally on a mobile devic
 # Prerequisites
 
 * XCode 14.3 or higher for iOS
-* [nvm installed on your machine](https://github.com/nvm-sh/nvm) and set to use NodeJS 20
-* Android version coming shortly.
+Nvm[ installed on](https://github.com/nvm-sh/nvm) your machine](https://github.com/nvm-sh/nvm) and set to use NodeJS 20
+* Android version is coming shortly.
 
 
 ### Setting NVM to Node 20

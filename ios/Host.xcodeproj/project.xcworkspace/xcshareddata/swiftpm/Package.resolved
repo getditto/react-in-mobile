@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "gcdwebserver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yene/GCDWebServer",
+      "state" : {
+        "revision" : "e143b8ec1b8a45d1779b1658fbaaf8fb039b5685",
+        "version" : "3.5.5"
+      }
+    }
+  ],
+  "version" : 2
+}

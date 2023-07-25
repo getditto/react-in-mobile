@@ -11,6 +11,10 @@
 		E3980DCF2A6FB6E1000C72F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3980DCE2A6FB6E1000C72F8 /* ContentView.swift */; };
 		E3980DD12A6FB6E2000C72F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3980DD02A6FB6E2000C72F8 /* Assets.xcassets */; };
 		E3980DD42A6FB6E2000C72F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3980DD32A6FB6E2000C72F8 /* Preview Assets.xcassets */; };
+		E3980DDC2A6FBAF5000C72F8 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = E3980DDB2A6FBAF5000C72F8 /* dist */; };
+		E3980DDE2A6FBB05000C72F8 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3980DDD2A6FBB05000C72F8 /* WebView.swift */; };
+		E3980DE42A6FC03C000C72F8 /* HTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3980DE32A6FC03C000C72F8 /* HTTPServer.swift */; };
+		E3980DE72A6FC731000C72F8 /* GCDWebServer in Frameworks */ = {isa = PBXBuildFile; productRef = E3980DE62A6FC731000C72F8 /* GCDWebServer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		E3980DCE2A6FB6E1000C72F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E3980DD02A6FB6E2000C72F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3980DD32A6FB6E2000C72F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E3980DDB2A6FBAF5000C72F8 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dist; path = ../web/dist; sourceTree = "<group>"; };
+		E3980DDD2A6FBB05000C72F8 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		E3980DDF2A6FBF9C000C72F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E3980DE32A6FC03C000C72F8 /* HTTPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3980DE72A6FC731000C72F8 /* GCDWebServer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +44,7 @@
 		E3980DC02A6FB6E1000C72F8 = {
 			isa = PBXGroup;
 			children = (
+				E3980DDB2A6FBAF5000C72F8 /* dist */,
 				E3980DCB2A6FB6E1000C72F8 /* Host */,
 				E3980DCA2A6FB6E1000C72F8 /* Products */,
 			);
@@ -51,10 +61,13 @@
 		E3980DCB2A6FB6E1000C72F8 /* Host */ = {
 			isa = PBXGroup;
 			children = (
+				E3980DDF2A6FBF9C000C72F8 /* Info.plist */,
 				E3980DCC2A6FB6E1000C72F8 /* HostApp.swift */,
 				E3980DCE2A6FB6E1000C72F8 /* ContentView.swift */,
 				E3980DD02A6FB6E2000C72F8 /* Assets.xcassets */,
 				E3980DD22A6FB6E2000C72F8 /* Preview Content */,
+				E3980DDD2A6FBB05000C72F8 /* WebView.swift */,
+				E3980DE32A6FC03C000C72F8 /* HTTPServer.swift */,
 			);
 			path = Host;
 			sourceTree = "<group>";
@@ -76,6 +89,7 @@
 			buildPhases = (
 				E3980DC52A6FB6E1000C72F8 /* Sources */,
 				E3980DC62A6FB6E1000C72F8 /* Frameworks */,
+				E3980DDA2A6FBA8C000C72F8 /* ShellScript */,
 				E3980DC72A6FB6E1000C72F8 /* Resources */,
 			);
 			buildRules = (
@@ -83,6 +97,9 @@
 			dependencies = (
 			);
 			name = Host;
+			packageProductDependencies = (
+				E3980DE62A6FC731000C72F8 /* GCDWebServer */,
+			);
 			productName = Host;
 			productReference = E3980DC92A6FB6E1000C72F8 /* Host.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +128,9 @@
 				Base,
 			);
 			mainGroup = E3980DC02A6FB6E1000C72F8;
+			packageReferences = (
+				E3980DE52A6FC731000C72F8 /* XCRemoteSwiftPackageReference "GCDWebServer" */,
+			);
 			productRefGroup = E3980DCA2A6FB6E1000C72F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3980DDC2A6FBAF5000C72F8 /* dist in Resources */,
 				E3980DD42A6FB6E2000C72F8 /* Preview Assets.xcassets in Resources */,
 				E3980DD12A6FB6E2000C72F8 /* Assets.xcassets in Resources */,
 			);
@@ -132,12 +153,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E3980DDA2A6FBA8C000C72F8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env sh";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/dist\"\n\nexport NVM_DIR=\"$HOME/.nvm\"\nif [ -s \"$NVM_DIR/nvm.sh\" ]; then\n  . \"$NVM_DIR/nvm.sh\"\n  nvm install 20\n  nvm use 20\nelse\n  # If nvm is not available, use the system-installed node\n  export PATH=\"/usr/local/bin:$PATH\"\nfi\ncd ../web\nnpm install\nnpm run build\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E3980DC52A6FB6E1000C72F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3980DDE2A6FBB05000C72F8 /* WebView.swift in Sources */,
 				E3980DCF2A6FB6E1000C72F8 /* ContentView.swift in Sources */,
+				E3980DE42A6FC03C000C72F8 /* HTTPServer.swift in Sources */,
 				E3980DCD2A6FB6E1000C72F8 /* HostApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +313,7 @@
 				DEVELOPMENT_TEAM = 3T2VMFZPPQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Host/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +343,7 @@
 				DEVELOPMENT_TEAM = 3T2VMFZPPQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Host/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -339,6 +384,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E3980DE52A6FC731000C72F8 /* XCRemoteSwiftPackageReference "GCDWebServer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yene/GCDWebServer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E3980DE62A6FC731000C72F8 /* GCDWebServer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3980DE52A6FC731000C72F8 /* XCRemoteSwiftPackageReference "GCDWebServer" */;
+			productName = GCDWebServer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E3980DC12A6FB6E1000C72F8 /* Project object */;
 }

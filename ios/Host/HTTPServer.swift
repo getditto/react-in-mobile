@@ -1,31 +1,24 @@
 //
-//  HostApp.swift
+//  HTTPServer.swift
 //  Host
 //
 //  Created by Maximilian Alexander on 7/25/23.
 //
 
-import SwiftUI
+import Foundation
 import GCDWebServer
 
-@main
-struct HostApp: App {
+class HTTPServerManager: ObservableObject {
     
-    let webServer = GCDWebServer()
+    var webServer: GCDWebServer
     
     init() {
+        webServer = GCDWebServer()
         if let path = Bundle.main.resourcePath?.appending("/dist") {
             webServer.addGETHandler(forBasePath: "/", directoryPath: path, indexFilename: "index.html", cacheAge: 3600, allowRangeRequests: true)
             webServer.start(withPort: 8080, bonjourName: nil)
-            if let url = webServer.serverURL {
-                print("Visit \(url) in your web browser")
-            }
+            print("Visit \(webServer.serverURL) in your web browser")
         }
     }
     
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
 }
