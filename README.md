@@ -17,3 +17,9 @@ If you've already installed [nvm](https://github.com/nvm-sh/nvm), then you can r
 nvm install 20
 nvm alias default 20
 ```
+
+# Running it on iOS
+
+1. Run `cd web` and run `npm install`
+2. Open up `ios/Host.xcproj`
+3. Run it in a simulator. 
