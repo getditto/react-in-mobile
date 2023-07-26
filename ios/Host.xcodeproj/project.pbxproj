@@ -12,7 +12,6 @@
 		E3980DD12A6FB6E2000C72F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3980DD02A6FB6E2000C72F8 /* Assets.xcassets */; };
 		E3980DD42A6FB6E2000C72F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3980DD32A6FB6E2000C72F8 /* Preview Assets.xcassets */; };
 		E3980DDE2A6FBB05000C72F8 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3980DDD2A6FBB05000C72F8 /* WebView.swift */; };
-		E3980DE72A6FC731000C72F8 /* GCDWebServer in Frameworks */ = {isa = PBXBuildFile; productRef = E3980DE62A6FC731000C72F8 /* GCDWebServer */; };
 		E3980DE82A6FC9AD000C72F8 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = E3980DDB2A6FBAF5000C72F8 /* dist */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3980DE72A6FC731000C72F8 /* GCDWebServer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +93,6 @@
 			);
 			name = Host;
 			packageProductDependencies = (
-				E3980DE62A6FC731000C72F8 /* GCDWebServer */,
 			);
 			productName = Host;
 			productReference = E3980DC92A6FB6E1000C72F8 /* Host.app */;
@@ -126,7 +123,6 @@
 			);
 			mainGroup = E3980DC02A6FB6E1000C72F8;
 			packageReferences = (
-				E3980DE52A6FC731000C72F8 /* XCRemoteSwiftPackageReference "GCDWebServer" */,
 			);
 			productRefGroup = E3980DCA2A6FB6E1000C72F8 /* Products */;
 			projectDirPath = "";
@@ -380,25 +376,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E3980DE52A6FC731000C72F8 /* XCRemoteSwiftPackageReference "GCDWebServer" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/yene/GCDWebServer";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E3980DE62A6FC731000C72F8 /* GCDWebServer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E3980DE52A6FC731000C72F8 /* XCRemoteSwiftPackageReference "GCDWebServer" */;
-			productName = GCDWebServer;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E3980DC12A6FB6E1000C72F8 /* Project object */;
 }
