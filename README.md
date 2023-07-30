@@ -20,6 +20,12 @@ nvm alias default 20
 
 # Running it on iOS
 
-1. Run `cd web` and run `npm install`
+1. Run `cd web` and run `npm install` to install the dependencies
 2. Open up `ios/Host.xcproj`
-3. Run it in a simulator. 
+3. Run it in a simulator or physical device
+
+# Running on Android
+
+1. Run `cd web` and run `npm install` to install the dependencies 
+2. Open Android Studio an open the `android` directory
+3. Build and run the app in an emulator or physical device
