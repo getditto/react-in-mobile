@@ -1,0 +1,111 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    /**
+     * This plugin allows you to run npm commands from gradle.
+     * It's used in the installAndBuildWeb gradle task.
+     */
+    id "com.github.node-gradle.node" version "5.0.0"
+}
+
+/**
+ * This task installs the express package and builds the vite project at ../../web folder.
+ */
+task installAndBuildWeb(type: NpmTask) {
+    // install the express package only
+    println 'Running npm install in ../../web'
+    args = ['install', '--prefix', '../../web']
+    println 'Running npm build in ../../web'
+    args = ['run', 'build', '--prefix', '../../web']
+}
+
+/**
+ * This task clears the Android assets folder.
+ * This is necessary because the Android build process does not clear the assets folder.
+ */
+task clearAssets(type: Delete) {
+    delete 'src/main/assets/dist'
+}
+/**
+ * This task copies the the vite project at ../../web/dist folder to the Android assets folder.
+ */
+task copyDistToAssets(type: Copy) {
+    from '../../web/dist'
+    into 'src/main/assets/dist'
+}
+
+task prebuildWeb {
+    dependsOn installAndBuildWeb
+    dependsOn clearAssets
+    dependsOn copyDistToAssets
+    tasks.findByName('clearAssets').mustRunAfter 'installAndBuildWeb'
+    tasks.findByName('copyDistToAssets').mustRunAfter 'clearAssets'
+}
+
+android {
+    namespace 'live.ditto.host'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "live.ditto.host"
+        minSdk 30
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.3.2'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+    preBuild.dependsOn prebuildWeb
+}
+
+dependencies {
+
+    // You will need this to load local JS and CSS files in the WebView
+    implementation "androidx.webkit:webkit:1.7.0"
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.activity:activity-compose:1.5.1'
+    implementation platform('androidx.compose:compose-bom:2022.10.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+}
