@@ -11,7 +11,7 @@ plugins {
 
 /*
  * Node plugin configuration
- * https://github.com/node-gradle/gradle-node-plugin/blob/5.0.0/docs/usage.md
+ * https://github.com/node-gradle/gradle-node-plugin/blob/master/docs/usage.md#configuring-the-plugin
  */
 node {
     // The npm command executed by the npmInstall task
@@ -42,6 +42,9 @@ task copyDistToAssets(type: Copy) {
     into 'src/main/assets/dist'
 }
 
+/**
+ * Generates web assets
+ */
 task prebuildWeb {
     dependsOn npmInstall
     dependsOn buildWeb
@@ -51,6 +54,9 @@ task prebuildWeb {
     tasks.findByName('copyDistToAssets').mustRunAfter 'clearAssets'
 }
 
+/*
+ * Hooks the custom `prebuildWeb` task into running before the app build.
+ */
 preBuild.dependsOn prebuildWeb
 
 android {
