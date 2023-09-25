@@ -4,3 +4,9 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
     id "com.github.node-gradle.node" version "7.0.0" apply false
 }
+
+tasks.named('wrapper') {
+    // https://docs.gradle.org/current/userguide/compatibility.html#kotlin
+    gradleVersion = "8.1.1"
+    distributionType = Wrapper.DistributionType.BIN
+}
