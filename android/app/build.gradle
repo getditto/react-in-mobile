@@ -8,13 +8,19 @@ plugins {
     id "com.github.node-gradle.node" version "5.0.0"
 }
 
-/**
- * This task installs the express package and builds the vite project at ../../web folder.
+/*
+ * Node plugin configuration
+ * https://github.com/node-gradle/gradle-node-plugin/blob/5.0.0/docs/usage.md
  */
-task installAndBuildWeb(type: NpmTask) {
-    // install the express package only
-    println 'Running npm install in ../../web'
-    args = ['install', '--prefix', '../../web']
+node {
+    // The npm command executed by the npmInstall task
+    npmInstallCommand = "install --prefix ../../web"
+}
+
+/**
+ * This task builds the vite project at ../../web folder.
+ */
+task buildWeb(type: NpmTask) {
     println 'Running npm build in ../../web'
     args = ['run', 'build', '--prefix', '../../web']
 }
@@ -26,6 +32,7 @@ task installAndBuildWeb(type: NpmTask) {
 task clearAssets(type: Delete) {
     delete 'src/main/assets/dist'
 }
+
 /**
  * This task copies the the vite project at ../../web/dist folder to the Android assets folder.
  */
@@ -35,12 +42,15 @@ task copyDistToAssets(type: Copy) {
 }
 
 task prebuildWeb {
-    dependsOn installAndBuildWeb
+    dependsOn npmInstall
+    dependsOn buildWeb
     dependsOn clearAssets
     dependsOn copyDistToAssets
-    tasks.findByName('clearAssets').mustRunAfter 'installAndBuildWeb'
+    tasks.findByName('clearAssets').mustRunAfter 'buildWeb'
     tasks.findByName('copyDistToAssets').mustRunAfter 'clearAssets'
 }
+
+preBuild.dependsOn prebuildWeb
 
 android {
     namespace 'live.ditto.host'
@@ -84,8 +94,6 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-
-    preBuild.dependsOn prebuildWeb
 }
 
 dependencies {
