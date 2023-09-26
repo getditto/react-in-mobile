@@ -11,6 +11,7 @@ import android.webkit.WebViewClient
 // The gradle dependency is `androidx.webkit:webkit:1.8.0`
 // See the gradle file for more details
 import androidx.webkit.WebViewAssetLoader
+import androidx.webkit.WebViewAssetLoader.AssetsPathHandler
 
 import android.view.ViewGroup
 import androidx.compose.runtime.Composable
@@ -19,21 +20,13 @@ import androidx.compose.ui.viewinterop.AndroidView
 import live.ditto.host.ui.theme.HostTheme
 
 
-@Preview(showBackground = true)
-@Composable
-fun ComposeWrappedWebViewPreview() {
-    HostTheme {
-        ComposeWrappedWebView()
-    }
-}
-
 @Composable
 fun ComposeWrappedWebView() {
     AndroidView(
         factory = { context ->
 
             val assetLoader = WebViewAssetLoader.Builder()
-                .addPathHandler("/assets/", WebViewAssetLoader.AssetsPathHandler(context))
+                .addPathHandler("/assets/", AssetsPathHandler(context))
                 .build()
 
             WebView(context).apply {
@@ -78,4 +71,12 @@ fun ComposeWrappedWebView() {
         },
         update = {}
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ComposeWrappedWebViewPreview() {
+    HostTheme {
+        ComposeWrappedWebView()
+    }
 }
