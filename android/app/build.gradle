@@ -14,8 +14,10 @@ plugins {
  * https://github.com/node-gradle/gradle-node-plugin/blob/master/docs/usage.md#configuring-the-plugin
  */
 node {
-    // The npm command executed by the npmInstall task
-    npmInstallCommand = "install --prefix ../../web"
+    // The Node.js project directory location
+    // This is where the package.json file and node_modules directory are located
+    // By default it is at the root of the current project
+    nodeProjectDir.set(file("../../web"))
 }
 
 /**
