@@ -4,7 +4,7 @@ Ever wanted to build a React app, bundle it and run it locally on a mobile devic
 
 ![Final image of a React Web app Running within an iOS and Android app](./final-image.jpg)
 
-# Prerequisites
+## Prerequisites
 
 - Xcode 14.3 or higher for iOS
 - [NVM](https://github.com/nvm-sh/nvm) installed on your machine and set to use Node.js 20
@@ -18,13 +18,13 @@ nvm install 20
 nvm alias default 20
 ```
 
-# Running it on iOS
+## Running it on iOS
 
 1. Run `cd web` and run `npm install` to install the dependencies
 2. Open up `ios/Host.xcproj` in Xcode
 3. Run it in a simulator or on a physical device
 
-# Running on Android
+## Running on Android
 
 1. Run `cd web` and run `npm install` to install the dependencies
 2. Open the `android` directory in Android Studio
