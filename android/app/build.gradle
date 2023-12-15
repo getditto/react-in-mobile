@@ -1,15 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-
-    /**
-     * This plugin allows you to run npm commands from gradle.
-     * It's used by the npmInstall and buildWeb gradle tasks.
-     */
     id "com.github.node-gradle.node"
 }
 
-/*
+/**
  * Node plugin configuration
  * https://github.com/node-gradle/gradle-node-plugin/blob/master/docs/usage.md#configuring-the-plugin
  */
