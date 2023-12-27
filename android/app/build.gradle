@@ -23,7 +23,7 @@ node {
 /**
  * This task builds the vite project at ../../web folder.
  */
-tasks.register('buildWeb', NpmTask) {
+def buildWeb = tasks.register('buildWeb', NpmTask) {
     args = ['run', 'build']
     doFirst {
         println 'Executing `npm run build` in ../../web'
@@ -36,6 +36,7 @@ tasks.register('buildWeb', NpmTask) {
  */
 def clearAssets = tasks.register('clearAssets', Delete) {
     delete 'src/main/assets/dist'
+    dependsOn buildWeb
 }
 
 // Include clearAssets when running a project clean
@@ -49,6 +50,7 @@ tasks.named('clean') {
 tasks.register('copyDistToAssets', Copy) {
     from '../../web/dist'
     into 'src/main/assets/dist'
+    dependsOn clearAssets
 }
 
 /**
@@ -59,12 +61,6 @@ tasks.register('prebuildWeb') {
     dependsOn buildWeb
     dependsOn clearAssets
     dependsOn copyDistToAssets
-    tasks.named('clearAssets') {
-        mustRunAfter 'buildWeb'
-    }
-    tasks.named('copyDistToAssets') {
-        mustRunAfter 'clearAssets'
-    }
 }
 
 /*
