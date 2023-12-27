@@ -8,7 +8,7 @@ import android.webkit.WebViewClient
 
 // Import the WebViewAssetLoader
 // This is part of the AndroidX Webkit library
-// The gradle dependency is `androidx.webkit:webkit:1.8.0`
+// The gradle dependency is `androidx.webkit:webkit:1.9.0`
 // See the gradle file for more details
 import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewAssetLoader.AssetsPathHandler
@@ -18,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import live.ditto.host.ui.theme.HostTheme
-
 
 @Composable
 fun ComposeWrappedWebView() {
