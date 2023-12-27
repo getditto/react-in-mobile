@@ -48,35 +48,27 @@ def cleanAssets = tasks.register('cleanAssets', Delete) {
     dependsOn buildWeb
 }
 
-// Include cleanAssets when running a project clean
-tasks.named('clean') {
-    dependsOn cleanAssets
-}
-
 /**
  * This task copies the the vite project at ../../web/dist folder to the Android assets folder.
  */
-tasks.register('copyDistToAssets', Copy) {
+def copyDistToAssets = tasks.register('copyDistToAssets', Copy) {
     from '../../web/dist'
     into 'src/main/assets/dist'
-    dependsOn cleanAssets
-}
-
-/**
- * Generates web assets
- */
-tasks.register('prebuildWeb') {
-    dependsOn npmInstall
     dependsOn buildWeb
     dependsOn cleanAssets
-    dependsOn copyDistToAssets
 }
 
 /*
- * Hooks the custom `prebuildWeb` task into running before the app build.
+ * Hooks the custom `copyDistToAssets` task into running before the app build.
  */
 tasks.named("preBuild") {
-    dependsOn prebuildWeb
+    dependsOn copyDistToAssets
+}
+
+/** Include cleanAssets when running a project clean */
+tasks.named('clean') {
+    dependsOn cleanWeb
+    dependsOn cleanAssets
 }
 
 android {
