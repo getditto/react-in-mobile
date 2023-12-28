@@ -15,12 +15,14 @@ import androidx.webkit.WebViewAssetLoader.AssetsPathHandler
 
 import android.view.ViewGroup
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import live.ditto.host.ui.theme.HostTheme
 
 @Composable
 fun ComposeWrappedWebView() {
+    val inPreview = LocalInspectionMode.current
     AndroidView(
         factory = { context ->
 
@@ -34,16 +36,20 @@ fun ComposeWrappedWebView() {
                     ViewGroup.LayoutParams.MATCH_PARENT
                 )
 
-                /**
-                 * Enable JavaScript in the WebView. This is required to load JS in the WebView.
-                 * The compiler will warn you that this can cause XSS security issues but since we
-                 * are loading our own assets, this is not a concern hence the
-                 * `@Suppress("SetJavaScriptEnabled")` annotation.
-                 *
-                 * See https://developer.android.com/reference/android/webkit/WebSettings#setJavaScriptEnabled(boolean)
-                 */
-                @Suppress("SetJavaScriptEnabled")
-                settings.javaScriptEnabled = false
+                // Compose previews don't fully support legacy Android views
+                // https://github.com/google/accompanist/issues/1326#issuecomment-1251355470
+                if (!inPreview) {
+                    /**
+                     * Enable JavaScript in the WebView. This is required to load JS in the WebView.
+                     * The compiler will warn you that this can cause XSS security issues but since we
+                     * are loading our own assets, this is not a concern hence the
+                     * `@Suppress("SetJavaScriptEnabled")` annotation.
+                     *
+                     * See https://developer.android.com/reference/android/webkit/WebSettings#setJavaScriptEnabled(boolean)
+                     */
+                    @Suppress("SetJavaScriptEnabled")
+                    settings.javaScriptEnabled = false
+                }
 
                 webViewClient =  object : WebViewClient() {
                     override fun shouldInterceptRequest(
@@ -53,15 +59,10 @@ fun ComposeWrappedWebView() {
                         return assetLoader.shouldInterceptRequest(request.url)
                     }
                 }
+
                 /**
                  * This is the URL that will be loaded when the WebView is first
-                 * The assets directory is served by a domain `https://assets.androidplatform.net`
-                 * Learn more about the WebViewAssetLoader here:
-                 * https://developer.android.com/reference/androidx/webkit/WebViewAssetLoader
-                 */
-                /**
-                 * This is the URL that will be loaded when the WebView is first
-                 * The assets directory is served by a domain `https://assets.androidplatform.net`
+                 * The assets directory is served by a domain `https://appassets.androidplatform.net`
                  * Learn more about the WebViewAssetLoader here:
                  * https://developer.android.com/reference/androidx/webkit/WebViewAssetLoader
                  */
@@ -72,7 +73,7 @@ fun ComposeWrappedWebView() {
     )
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, apiLevel = 33)
 @Composable
 fun ComposeWrappedWebViewPreview() {
     HostTheme {
