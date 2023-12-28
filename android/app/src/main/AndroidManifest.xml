@@ -10,13 +10,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Host"
-        tools:targetApi="31">
+        android:theme="@style/Theme.ReactInMobile"
+        tools:targetApi="34">
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Host">
+            android:theme="@style/Theme.ReactInMobile">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
