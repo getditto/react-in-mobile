@@ -1,4 +1,4 @@
-package live.ditto.host
+package live.ditto.reactinmobile
 
 import org.junit.Test
 

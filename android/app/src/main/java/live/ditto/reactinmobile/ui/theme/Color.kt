@@ -1,4 +1,4 @@
-package live.ditto.host.ui.theme
+package live.ditto.reactinmobile.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
