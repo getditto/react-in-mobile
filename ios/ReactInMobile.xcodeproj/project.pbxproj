@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E3980DC92A6FB6E1000C72F8 /* Host.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Host.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3980DC92A6FB6E1000C72F8 /* ReactInMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactInMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3980DCC2A6FB6E1000C72F8 /* HostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostApp.swift; sourceTree = "<group>"; };
 		E3980DCE2A6FB6E1000C72F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E3980DD02A6FB6E2000C72F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				E3980DDB2A6FBAF5000C72F8 /* dist */,
-				E3980DCB2A6FB6E1000C72F8 /* Host */,
+				E3980DCB2A6FB6E1000C72F8 /* ReactInMobile */,
 				E3980DCA2A6FB6E1000C72F8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,12 +49,12 @@
 		E3980DCA2A6FB6E1000C72F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E3980DC92A6FB6E1000C72F8 /* Host.app */,
+				E3980DC92A6FB6E1000C72F8 /* ReactInMobile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E3980DCB2A6FB6E1000C72F8 /* Host */ = {
+		E3980DCB2A6FB6E1000C72F8 /* ReactInMobile */ = {
 			isa = PBXGroup;
 			children = (
 				E3980DDF2A6FBF9C000C72F8 /* Info.plist */,
@@ -64,7 +64,7 @@
 				E3980DD22A6FB6E2000C72F8 /* Preview Content */,
 				E3980DDD2A6FBB05000C72F8 /* WebView.swift */,
 			);
-			path = Host;
+			path = ReactInMobile;
 			sourceTree = "<group>";
 		};
 		E3980DD22A6FB6E2000C72F8 /* Preview Content */ = {
@@ -78,9 +78,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E3980DC82A6FB6E1000C72F8 /* Host */ = {
+		E3980DC82A6FB6E1000C72F8 /* ReactInMobile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E3980DD72A6FB6E2000C72F8 /* Build configuration list for PBXNativeTarget "Host" */;
+			buildConfigurationList = E3980DD72A6FB6E2000C72F8 /* Build configuration list for PBXNativeTarget "ReactInMobile" */;
 			buildPhases = (
 				E3980DC52A6FB6E1000C72F8 /* Sources */,
 				E3980DC62A6FB6E1000C72F8 /* Frameworks */,
@@ -91,11 +91,11 @@
 			);
 			dependencies = (
 			);
-			name = Host;
+			name = ReactInMobile;
 			packageProductDependencies = (
 			);
 			productName = Host;
-			productReference = E3980DC92A6FB6E1000C72F8 /* Host.app */;
+			productReference = E3980DC92A6FB6E1000C72F8 /* ReactInMobile.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -113,7 +113,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E3980DC42A6FB6E1000C72F8 /* Build configuration list for PBXProject "Host" */;
+			buildConfigurationList = E3980DC42A6FB6E1000C72F8 /* Build configuration list for PBXProject "ReactInMobile" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -128,7 +128,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E3980DC82A6FB6E1000C72F8 /* Host */,
+				E3980DC82A6FB6E1000C72F8 /* ReactInMobile */,
 			);
 		};
 /* End PBXProject section */
@@ -301,11 +301,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Host/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"$(TARGET_NAME)/Preview Content\"";
 				DEVELOPMENT_TEAM = 3T2VMFZPPQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Host/Info.plist;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -316,7 +316,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = live.ditto.Host;
+				PRODUCT_BUNDLE_IDENTIFIER = live.ditto.ReactInMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -331,11 +331,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Host/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"$(TARGET_NAME)/Preview Content\"";
 				DEVELOPMENT_TEAM = 3T2VMFZPPQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Host/Info.plist;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -346,7 +346,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = live.ditto.Host;
+				PRODUCT_BUNDLE_IDENTIFIER = live.ditto.ReactInMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -357,7 +357,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E3980DC42A6FB6E1000C72F8 /* Build configuration list for PBXProject "Host" */ = {
+		E3980DC42A6FB6E1000C72F8 /* Build configuration list for PBXProject "ReactInMobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3980DD52A6FB6E2000C72F8 /* Debug */,
@@ -366,7 +366,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E3980DD72A6FB6E2000C72F8 /* Build configuration list for PBXNativeTarget "Host" */ = {
+		E3980DD72A6FB6E2000C72F8 /* Build configuration list for PBXNativeTarget "ReactInMobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3980DD82A6FB6E2000C72F8 /* Debug */,
